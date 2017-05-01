@@ -1,0 +1,299 @@
+-- MySQL dump 10.13  Distrib 5.7.18, for Win64 (x86_64)
+--
+-- Host: localhost    Database: Car_Pooling
+-- ------------------------------------------------------
+-- Server version	5.7.18-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `auto_service`
+--
+
+DROP TABLE IF EXISTS `auto_service`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auto_service` (
+  `A_ID` int(20) NOT NULL,
+  `Music_Choice` varchar(100) NOT NULL,
+  `Plate_Nos` varchar(20) NOT NULL,
+  `Charges` int(10) NOT NULL,
+  `timeof1` varchar(10) NOT NULL,
+  `dateof1` date NOT NULL,
+  `A_O_ID` varchar(20) NOT NULL,
+  PRIMARY KEY (`A_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auto_service`
+--
+
+LOCK TABLES `auto_service` WRITE;
+/*!40000 ALTER TABLE `auto_service` DISABLE KEYS */;
+INSERT INTO `auto_service` VALUES (5001,'Rock','Plate1',200,'12:00-PM','2017-01-12','507'),(5002,'Metal','Plate2',100,'1:00-PM','2016-10-12','509'),(5003,'Soft','Plate3',150,'8:00-PM','2017-01-03','510'),(5004,'Metal','Plate4',200,' 11:00-AM','2017-03-01','508'),(5005,'Rock','Plate5',300,' 4:00-PM','2017-04-24','507'),(5006,'Rock','Plate6',100,' 6:00-PM','2017-04-15','509'),(5007,'Soft','Plate7',50,' 7:00-PM','2017-03-17','503'),(5008,'Soft','Plate8',80,' 6:00-AM','2017-04-07','504'),(5009,'Metal','Plate9',100,' 10:00-PM','2017-02-04','506'),(5010,'Rock','Plate10',250,' 10:00-AM','2017-04-30','512');
+/*!40000 ALTER TABLE `auto_service` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `car_details`
+--
+
+DROP TABLE IF EXISTS `car_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `car_details` (
+  `Plate_Nos` varchar(20) NOT NULL,
+  `Color` varchar(10) NOT NULL,
+  `AC_NonAC` varchar(20) NOT NULL,
+  `Model` varchar(20) NOT NULL,
+  `Capacity` int(20) NOT NULL,
+  `C_S_ID` varchar(20) NOT NULL,
+  PRIMARY KEY (`Plate_Nos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `car_details`
+--
+
+LOCK TABLES `car_details` WRITE;
+/*!40000 ALTER TABLE `car_details` DISABLE KEYS */;
+INSERT INTO `car_details` VALUES ('Plate11','White','AC','Model1',4,'2001'),('Plate12','Black','Non-AC','Model3',4,'2002'),('Plate13','Grey','AC','Model2',4,'2003'),('Plate14','White','AC','Modlel2',4,'2004'),('Plate15','Red','Non-AC','Model3',4,'2005'),('Plate16','Black','Non-AC','Model1',4,'2006'),('Plate17','Blue','AC','Model4',4,'2007'),('Plate18','Silver','AC','Model2',4,'2008'),('Plate19','Black','Non-AC','Model3',4,'2009'),('Plate20','White','AC','Model1',4,'2010');
+/*!40000 ALTER TABLE `car_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `car_service`
+--
+
+DROP TABLE IF EXISTS `car_service`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `car_service` (
+  `timeof2` varchar(50) NOT NULL,
+  `dateof2` date NOT NULL,
+  `Service_id` int(10) NOT NULL,
+  `Charges` int(10) NOT NULL,
+  `C_O_ID` varchar(20) NOT NULL,
+  `C_T_ID` varchar(20) NOT NULL,
+  PRIMARY KEY (`Service_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `car_service`
+--
+
+LOCK TABLES `car_service` WRITE;
+/*!40000 ALTER TABLE `car_service` DISABLE KEYS */;
+INSERT INTO `car_service` VALUES ('12:00-PM','2017-01-12',2001,1500,'501','1001'),('1:00-PM','2016-10-12',2002,1800,'503','1002'),(' 11:00-AM','2017-03-01',2004,3000,'502','1004'),(' 4:00-PM','2017-04-24',2005,1000,'504','1005'),(' 6:00-PM','2017-04-15',2006,500,'505','1006'),(' 7:00-PM','2017-03-17',2007,700,'506','1007'),(' 6:00-AM','2017-04-07',2008,600,'505','1008'),(' 10:00-PM','2017-02-04',2009,2000,'503','1009'),(' 10:00-AM','2017-04-30',2010,2200,'508','1010'),('8:00-PM','2017-01-03',20013,2000,'501','1003');
+/*!40000 ALTER TABLE `car_service` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `model`
+--
+
+DROP TABLE IF EXISTS `model`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `model` (
+  `Model` varchar(20) NOT NULL,
+  `Capacity` int(10) NOT NULL,
+  `AC_NonAC` varchar(20) NOT NULL,
+  PRIMARY KEY (`Model`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `model`
+--
+
+LOCK TABLES `model` WRITE;
+/*!40000 ALTER TABLE `model` DISABLE KEYS */;
+INSERT INTO `model` VALUES ('Model1',4,'AC'),('Model10',4,'AC'),('Model2',4,'Non-AC'),('Model3',4,'AC'),('Model4',4,'AC'),('Model5',4,'Non-AC'),('Model6',4,'Non-AC'),('Model7',4,'AC'),('Model8',4,'AC'),('Model9',4,'Non-AC');
+/*!40000 ALTER TABLE `model` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `owners`
+--
+
+DROP TABLE IF EXISTS `owners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `owners` (
+  `Company_Name` varchar(100) DEFAULT NULL,
+  `O_ID` int(5) NOT NULL,
+  `O_E_Mail` varchar(20) NOT NULL,
+  PRIMARY KEY (`O_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `owners`
+--
+
+LOCK TABLES `owners` WRITE;
+/*!40000 ALTER TABLE `owners` DISABLE KEYS */;
+INSERT INTO `owners` VALUES ('Comp1',501,'userone@user.com'),('Comp2',502,'usertwo@user.com'),('Comp3',503,'userthree@user.com'),('Comp4',504,'userfour@user.com'),('Comp5',505,'userfive@user.com'),('Comp6',506,'usersix@user.com'),('Comp7',507,'userseven@user.com'),('Comp8',508,'usereight@user.com'),('Comp9',509,'usernine@user.com'),('Comp10',510,'userten@user.com');
+/*!40000 ALTER TABLE `owners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `preferences`
+--
+
+DROP TABLE IF EXISTS `preferences`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `preferences` (
+  `Music` varchar(20) NOT NULL,
+  `Smoking` varchar(20) NOT NULL,
+  `Gossip` varchar(20) NOT NULL,
+  `Gender` varchar(10) NOT NULL,
+  `P_S_ID` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `preferences`
+--
+
+LOCK TABLES `preferences` WRITE;
+/*!40000 ALTER TABLE `preferences` DISABLE KEYS */;
+INSERT INTO `preferences` VALUES ('Rock','Yes','No','Mix','2001'),('Soft','No','Yes','Female','2002'),('Metal','No','Yes','Mix','2003'),('Rock','No','No','Mix','2004'),('Rock','No','No','Mix','2005'),('Metal','Yes','Yes','Female','2006'),('Soft','Yes','No','Mix','2007'),('Soft','No','No','Female','2008'),('Rock','No','Yes','Mix','2009'),('Soft','No','Yes','Female','2010');
+/*!40000 ALTER TABLE `preferences` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `route`
+--
+
+DROP TABLE IF EXISTS `route`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `route` (
+  `R_ID` varchar(20) NOT NULL,
+  `SourceD` varchar(100) NOT NULL,
+  `Mile_Stones` varchar(100) NOT NULL,
+  `OneWay_TwoWay` varchar(10) DEFAULT NULL,
+  `Capacity` int(20) NOT NULL,
+  `Destination` varchar(100) NOT NULL,
+  `R_A_ID` varchar(20) NOT NULL,
+  `S_S_ID` varchar(20) NOT NULL,
+  PRIMARY KEY (`R_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `route`
+--
+
+LOCK TABLES `route` WRITE;
+/*!40000 ALTER TABLE `route` DISABLE KEYS */;
+INSERT INTO `route` VALUES ('3001','Source1','Ms1','oneway',8,'Destination1','5001','2001'),('3002','Source2','Ms3','twoway',10,'Destination2','5002','2002'),('3003','Source1','Ms2','oneway',6,'Destination1','5003','2003'),('3004','Source3','Ms1','oneway',4,'Destination3','5004','2004'),('3005','Source2','Ms3','twoway',8,'Destination2','5005','2005'),('3006','Source1','Ms1','oneway',6,'Destination4','5006','2006'),('3007','Source4','Ms2','twoway',8,'Destination1','5007','2007'),('3008','Source1','Ms3','twoway',10,'Destination2','5008','2008'),('3009','Source3','Ms1','oneway',8,'Destination3','5009','2009'),('3010','Source1','Ms2','twoway',5,'Destination1','5010','2010');
+/*!40000 ALTER TABLE `route` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `security_question`
+--
+
+DROP TABLE IF EXISTS `security_question`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `security_question` (
+  `Q_ID` int(4) NOT NULL,
+  `Question` varchar(100) NOT NULL,
+  PRIMARY KEY (`Q_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `security_question`
+--
+
+LOCK TABLES `security_question` WRITE;
+/*!40000 ALTER TABLE `security_question` DISABLE KEYS */;
+INSERT INTO `security_question` VALUES (1,'What was your first pet name?'),(2,'What was your school\'s name?'),(3,'What was your first vehicle?'),(4,'Where is your hometown ?'),(5,'Who was your favorite actor?');
+/*!40000 ALTER TABLE `security_question` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `traveller`
+--
+
+DROP TABLE IF EXISTS `traveller`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `traveller` (
+  `SourceD` varchar(100) NOT NULL,
+  `Destination` varchar(100) NOT NULL,
+  `Dept_Time` varchar(10) NOT NULL,
+  `Nos_of_Passengers` int(20) NOT NULL,
+  `dateof` date NOT NULL,
+  `T_ID` int(4) NOT NULL,
+  `T_E_Mail` varchar(20) NOT NULL,
+  PRIMARY KEY (`T_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `traveller`
+--
+
+LOCK TABLES `traveller` WRITE;
+/*!40000 ALTER TABLE `traveller` DISABLE KEYS */;
+INSERT INTO `traveller` VALUES ('Source1','Destination1','12:00-PM',6,'2017-01-12',1001,'userone@user.com'),('Source2','Destination1','1:00-PM',8,'2016-10-12',1002,'usertwo@user.com'),('Source1','Destination2','8:00-PM',2,'2017-01-03',1003,'userthree@user.com'),('Source2','Destination3','11:00-AM',4,'2017-03-01',1004,'userfour@user.com'),('Source2','Destination4','4:00-PM',1,'2017-04-24',1005,'userfive@user.com'),('Source3','Destination2','6:00-PM',4,'2017-04-15',1006,'usersix@user.com'),('Source4','Destination3','7:00-PM',5,'2017-03-17',1007,'userseven@user.com'),('Source3','Destination2','6:00-AM',9,'2017-04-07',1008,'usereight@user.com'),('Source1','Destination4','10:00-PM',2,'2017-02-04',1009,'usernine@user.com'),('Source4','Destination4','10:00-AM',8,'2017-04-30',1010,'userten@user.com');
+/*!40000 ALTER TABLE `traveller` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `E_Mail` varchar(100) NOT NULL,
+  `Passwords` int(20) NOT NULL,
+  `Name_users` varchar(30) NOT NULL,
+  `Q_ID` int(4) NOT NULL,
+  PRIMARY KEY (`E_Mail`),
+  KEY `Q_ID` (`Q_ID`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`Q_ID`) REFERENCES `security_question` (`Q_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES ('usereight@user.com',181818,'UserEight',2),('userfive@user.com',151515,'UserFive',1),('userfour@user.com',141414,'UserFour',2),('usernine@user.com',191919,'UserNine',5),('userone@user.com',111111,'UserOne',1),('userseven@user.com',171717,'UserSeven',4),('usersix@user.com',161616,'UserSix',5),('userten@user.com',212121,'UserTen',3),('userthree@user.com',131313,'UserThree',4),('usertwo@user.com',121212,'UserTwo',3);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-05-01  0:37:02
